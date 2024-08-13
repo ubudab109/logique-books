@@ -8,8 +8,6 @@ import {
   Max, 
   IsInt 
 } from 'class-validator';
-import { Entity } from 'typeorm';
-
 
 export class BookDto {
   @IsString()
