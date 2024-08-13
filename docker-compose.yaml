@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: book_app
+    ports:
+      - "3000:3000" # Map container port to host port
+    environment:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: book_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: space109
+      POSTGRES_DB: db_books
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
