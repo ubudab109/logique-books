@@ -14,12 +14,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// For debugging purposes
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
-
 app.use(securityMiddleware);
 
 AppDataSource.initialize()
